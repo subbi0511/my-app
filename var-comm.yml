@@ -1,0 +1,11 @@
+---
+ - name: commandling arguments
+   hosts: localhost
+   gather_facts: no
+   tasks:
+           - name: read argeuments from command prompt
+             debug:
+                     msg: 
+                       - "the x value is: {{x}}"
+                         #    - "the y valie is: {{y}}"
+                   

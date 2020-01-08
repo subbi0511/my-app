@@ -1,0 +1,12 @@
+---
+ - hosts: all
+   tasks:
+           - name: copy the file
+             copy:
+                     src: dummy.txt
+                     dest: /tmp/dummy.txt
+             register: output
+           - name: print ohut the result
+             debug:
+                     msg: "{{output}}"
+

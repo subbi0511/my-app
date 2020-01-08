@@ -1,0 +1,25 @@
+---
+ - name: this play for understnaind var module
+   hosts: localhost
+   gather_facts: no
+   vars:
+           age: 35
+           name: subbi
+   vars_prompt:
+         - name: company
+           prompt: name of the complanys is?
+           private: no
+         - name: username
+           prompt: enter the user name
+           private: no
+         - name: password
+           prompt: enter the password
+           private: yes
+   tasks:
+           - name: defining variables
+             debug:
+                     msg: 
+                       - "name of the mployee: {{name}}"
+                       - "age of the mployee is: {{age}}"
+                       - " name of the complany is {{company}}"
+                       - "user name of the mployee is {{name}}"

@@ -1,0 +1,17 @@
+---
+ - name: this play for understnaing exception block
+   hosts: localhost
+   gather_facts: no
+   tasks:
+           - name: exception handling
+             command: ls /home/ec2-user/ansible/mfi
+             register: output
+           - name: print the output of the task
+             debug: 
+               var: output
+           - name: second folder information
+             command: ls /home/ec2-user/ansible/mfi1
+             ignore_errors: yes
+             register: output2
+           - name: print output of mfi2
+             debug: var=output2  

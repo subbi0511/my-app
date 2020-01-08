@@ -1,0 +1,25 @@
+---
+- name: Test debug verbosity
+  hosts: all
+  gather_facts: false
+  connection: local
+  become: true
+  tasks:
+    - name: verbosity none
+      debug:
+        var: ansible_ssh_user
+
+    - name: verbosity 0
+      debug:
+        var: ansible_ssh_user
+        verbosity: 0
+
+    - name: verbosity 1
+      debug:
+        var: ansible_ssh_user
+        verbosity: 1
+
+    - name: verbosity 2
+      debug:
+        var: ansible_ssh_user
+        verbosity: 2

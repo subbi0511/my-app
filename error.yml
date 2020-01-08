@@ -1,0 +1,7 @@
+#!/usr/bin/ansible-playbook
+ - name: this is simple playbook for exception hadinlging
+   hosts: localhost
+   gather_facts: no
+   tasks:
+           - name: listout the files in mfi directory
+             debug: msg="hellpo world"

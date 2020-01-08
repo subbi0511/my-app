@@ -1,0 +1,17 @@
+#this play for register module
+---
+ - name: this play for hosts
+   hosts: all
+   tasks:
+           - name: creating file on remote machines
+             file:
+                     dest: /tmp/20.txt
+                     state: touch
+
+             delegate_to: localhost
+
+
+                     #register: repo_out
+                     #- name: pint the response of the play  
+                     #debug:
+                     #msg: "{{repo_out}}"

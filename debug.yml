@@ -1,0 +1,11 @@
+---
+ - name: tthis is imple play for debug module
+   hosts: localhost
+   gather_facts: no
+   tasks:
+           - name: print user defined message on the console
+             debug:
+                     msg: 
+                       - "welcome to ansible debug module"
+                       - "welcome to ansbile second time debub module"
+                       - "welcome to ansible thrid time debug module"

@@ -1,0 +1,9 @@
+---
+ - name: play for apche install
+   hosts: localhost
+   gather_facts: yes
+   tasks:
+           - name: installing {{pkg}} on localhost
+             yum:
+                     name: "{{pkg}}"
+                     state: "{{status}}"

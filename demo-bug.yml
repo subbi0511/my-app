@@ -1,0 +1,25 @@
+---
+ - name: this is simple ply for understnad exception handling
+   hosts: localhost
+   ignore_errors: yes
+   gather_facts: no
+   tasks:
+           - name: listout the files in mfi directory
+             command: ls -lrt /home/ec2-user/ansible/mfi
+             register: output1
+           - name: disply the output1
+             debug:
+                      var: output1 
+           - name: listout the files in mfi1 direcotry
+             command: ls /home/ec2-user/ansible/mfi1
+             register: output2
+           - name: display the output2
+             debug:
+                     var: output2
+           - name: listout the files in hpe direcotry
+             command: ls /home/ec2-user/ansible/hpe
+             register: output3
+           - name: display the output3
+             debug:
+                     var: output3
+

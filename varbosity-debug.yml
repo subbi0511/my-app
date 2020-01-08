@@ -1,0 +1,10 @@
+---
+ - hosts: localhost
+   tasks:
+           - name: verbosity as default
+             debug:
+                     msg: "this is default message"
+           - name: verboisty is 2
+             debug:
+                     msg: "verbosity is 2"
+                     verbosity: 2

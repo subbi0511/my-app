@@ -1,0 +1,18 @@
+---
+ - hosts: localhost
+   vars:
+           x: 45
+           name: gsrld
+   vars_prompt:
+           name: l
+           prompt: enter the valud for l 
+           private: no
+   gather_facts: fasle
+   tasks:
+           - name: print the values of variables
+             debug:
+                msg:
+                  - "the valud of x is :{{x}}"
+                  - "the name is: {{name}}"
+                  - "name of l is: {{l}}"
+

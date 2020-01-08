@@ -1,0 +1,15 @@
+---
+ - hosts: localhost
+   vars_prompt:
+          - name: user_name
+            prompt: enter user name
+            private: no
+          - name: password
+            prompt: enther your password
+   gather_facts: no
+   tasks:
+           - name: enther username and password
+             debug:
+                     msg:
+                             - "enther username {{user_name}}"
+                             - "enter password {{password}}"

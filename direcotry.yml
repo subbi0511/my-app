@@ -1,0 +1,10 @@
+#  this demo play for delegate module
+---
+ - name: this play for create direcotry
+   hosts: all
+   tasks:
+           - name: creting directory
+             file:
+                     name: /tmp/mfi
+                     state: directory
+                     # delegate_to: localhost

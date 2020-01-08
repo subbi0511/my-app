@@ -1,0 +1,14 @@
+#!/usr/bin/ansible-playbook
+ - name: this is simple debug module for print default varia ble vaules
+   hosts: server1
+   gather_facts: yes
+   become: true
+   tasks:
+           - name: pring variable value
+             debug:
+                      msg: 
+                       - "value of the first variable is: {{ansible_user}}"
+                       - "value of the second variable is: {{ansible_host}}"
+                       - "value of the third variable is: {{ansible_connection}}"
+                       - "value of the fourth vvariable is: {{ansible_play_name}}"
+                       - "value of the fifth vaiable is: {{ansible_play_role_names}}"

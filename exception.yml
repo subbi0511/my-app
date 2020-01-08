@@ -1,0 +1,24 @@
+---
+ - name: this play for exception handling
+   hosts: localhost
+   gather_facts: no
+   vars:
+           x: 50
+   tasks:
+           - name: list out the files in mfi
+             command: ls /home/ec2-user/ansible/mfi
+             register: output
+           - name: display result of output
+             debug: var=output
+           - name: list of the files in  mfi1
+             command : ls/home/ec2--user/ansible/mfi1
+             register: output2
+             ignore_errors: yes
+           - name: disply reslut of output2
+             debug: var=output2
+           - name: listout the files of hpe2
+             command: ls /home/ec2-user/ansible/hpe2
+             register: output3
+           - name: display the result of output3
+             debug: var=output3
+            

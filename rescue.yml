@@ -1,0 +1,17 @@
+---
+ - name: play for rescue
+   hosts: localhost
+   gather_facts: no
+   tasks: 
+       - block:
+               - name: finding files in mfi
+                 command: ls /home/ec2-user/ansible/mfi
+                 register: output
+               - name: display the output
+                 debug: var=output
+         rescue:
+                 - debug:
+                         msg: mfi1 folder is not exist in current location
+         always:
+                 - debug:
+                        msg: exist or not, this ALWAYS bloch should execute

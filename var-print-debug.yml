@@ -1,0 +1,7 @@
+---
+ - name: debug module with var parameter
+   hosts: localhost
+   tasks:
+           - name: understnaind debug module
+             debug:
+                     var: ansible_host ansible_connection

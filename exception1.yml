@@ -1,0 +1,6 @@
+---
+ - name: it is extended for exceptoin
+   hosts: all
+   tasks: 
+      - name: gathering facts
+        debug: var=ansible_os_family

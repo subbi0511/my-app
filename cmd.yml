@@ -1,0 +1,8 @@
+---
+ - hosts: localhost
+   vars:
+   gather_facts: no
+   tasks:
+           - name: print output of variable
+             debug:
+                     msg: varabile value is {{x}}

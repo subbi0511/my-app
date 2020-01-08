@@ -1,0 +1,12 @@
+---
+ - hosts: localhost
+   gather_facts: no
+   tasks:
+           - name: create dir on localhost
+             file:
+                name: "{{item}}"
+                state: directory
+             with_items:
+                             - hpe2
+                             - hpe3
+

@@ -1,0 +1,13 @@
+---
+ - hosts: localhost
+   gather_facts: no
+   vars:
+           x: 100
+           mycompany: dxc
+   tasks:
+           - name: print the values of variables
+             debug:
+                     msg:  
+                       - "the value of x is: {{x}}"
+                       - "my company name is: {{mycompany}}"
+
