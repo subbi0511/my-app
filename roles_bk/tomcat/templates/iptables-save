@@ -1,4 +1,3 @@
-
 # {{ ansible_managed }}
 *filter
 :INPUT ACCEPT [0:0]

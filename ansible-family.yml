@@ -1,0 +1,9 @@
+---
+ - name: this play for find ansible os family
+   hosts: all
+   gather_facts: yes
+   become: yes
+   tasks:
+           - name: find anisble os family of target machines
+             debug:
+                     var: ansible_os_family

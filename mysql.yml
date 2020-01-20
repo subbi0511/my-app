@@ -1,0 +1,30 @@
+---
+  - name: his is imple for install mysql db on target machines
+    hosts: server4
+    become: yes
+    gather_facts: no
+    tasks:
+           - name: install mysql server
+             apt:
+                     name: mysql-server
+                     state: present
+           - name: start the service
+             service: 
+                    name: mysql
+                    state: started
+                    enabled: yes
+           - name: install python mysql 
+             apt:
+                     name: python-mysqldb
+                     state: present
+           - name: create database on target machine
+             mysql_db:
+                     name: mfi_dev
+                     state: present
+           - name: create database user
+             mysql_user:
+                     name: mfiuser
+                     password: mfiuser
+                     priv: '*.*:ALL'
+                     state: present
+

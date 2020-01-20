@@ -1,0 +1,20 @@
+---
+ - hosts: server4
+   become: yes
+   tasks:
+          - name: install python mysql
+            apt: name=python-mysqldb state=absent
+          - name: Install mysql server
+            apt: name=mysql-server state=absent
+          - name: Start and enable mysql server
+            service: name=mysql state=started  enabled=yes
+          - name: create database schema
+            mysql_db:
+                    name: ckp_dev
+                    state: absent
+          - name: create database user
+            mysql_user:
+                    name: ckpuser
+                    password: ckpuser
+                    priv: '*.*:ALL'
+                    state: absent

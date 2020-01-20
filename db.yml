@@ -1,0 +1,31 @@
+---
+ - hosts: all
+   become: yes
+   gather_facts: mo
+   tasks:  
+          - name: install python mysql
+            apt: name=python-mysqldb state=present
+          - name: Install mysql server
+            apt: name=mysql-server state=present
+          - name: Start and enable mysql server
+            service: name=mysql state=started  enabled=yes
+          - name: create database schema
+            mysql_db:
+                    name: ckp_dev
+                    state: present
+          - name: create database user
+            mysql_user:
+                    name: ckpuser
+                    password: ckpuser
+                    priv: '*.*:ALL'
+                    state: present 
+          - name: copy devops.sql to dbservers
+            copy:
+                    src: devops.sql
+                    dest: /tmp/devops.sql
+          - name: import database script
+            mysql_db:
+                    name: ckp_dev
+                    state: import
+                    target: /tmp/devops.sql
+

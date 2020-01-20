@@ -1,0 +1,27 @@
+---
+ - name: play for install software packages
+   hosts: all
+   gather_facts: true
+   become: yes
+   tasks:
+           - name: installing webserver on Redhat family
+             yum:
+                     name: httpd
+                     state: present
+             when: ansible_os_family=="RedHat"
+           - name: installing webserver on Debian family
+             apt:
+                     name: apache2
+                     state: present
+             when: ansible_os_family=="Debian"
+           - name: installing java on Redhat family
+             yum:
+                     name: java-1.8.0-openjdk
+                     state: present
+             when: ansible_os_family=="RedHat"
+
+           - name: installing java on Debian family
+             apt:
+                     name: openjdk-8-jdk
+                     state: present
+             when: ansible_os_family=="Debian"

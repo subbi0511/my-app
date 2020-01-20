@@ -1,0 +1,21 @@
+---
+ - name: this is the simple play for create users 
+   hosts: all
+   gather_facts: no
+   become: yes
+   tasks:
+           
+           - name: create admin groups
+             group: '{{item.group}}'
+                     state: present
+
+           - name: create admin group in target machine
+             user:
+                     name: '{{item.name}}'
+                     state: present
+             loop:
+                     - {name: 'subbi' , group: 'awsadmin'}
+                     - {name: 'tja'   , group: 'devopsadmin'}
+                     - {name: 'chandu' , group: 'MFIAdmin'}
+
+

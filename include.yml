@@ -1,0 +1,14 @@
+---
+ - name: play for install software packages
+   hosts: all
+   gather_facts: true
+   become: yes
+   tasks:
+           - import_tasks: install-webserver-redhat.yml
+             when: ansible_os_family=="RedHat"
+           - import_tasks: install-webserver-Debian.yml
+             when: ansible_os_family=="Debian"
+           - include_tasks: install-java-redhat.yml  
+             when: ansible_os_family=="RedHat"
+           - include_tasks: install-java-debian.yml
+             when: ansible_os_family=="Debian"

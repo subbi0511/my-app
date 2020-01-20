@@ -1,0 +1,10 @@
+---
+ - name: this is simple play to install packages on different OS familyes
+   hosts: all
+   gather_facts: yes
+   become: yes
+   tasks:
+           - include_tasks: webserver-{{ansible_os_family}}.yml
+             when: ansible_os_family=="Debian"
+           - include_tasks: java-{{ansible_os_family}}.yml
+             when: ansible_os_family=="RedHat"

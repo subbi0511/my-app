@@ -1,0 +1,10 @@
+---
+ - name: this is simpale for find the ansible-os-family
+   hosts: all
+   gather_facts: yes
+   tasks:
+           - name: disply o-family of target machines
+             debug:
+                     msg: 
+                      - "os faimly of target machines: {{ansible_os_family}}"
+                      - "ansible target connection type: {{ansible_connection}}"
